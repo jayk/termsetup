@@ -1,4 +1,4 @@
-source .vim/terminalkeys.vim
+source ~/.vim/terminalkeys.vim
 
 call plug#begin()
 Plug 'scrooloose/nerdtree'
