@@ -1,0 +1,43 @@
+source .vim/terminalkeys.vim
+
+call plug#begin()
+Plug 'scrooloose/nerdtree'
+Plug 'vim-airline/vim-airline'
+Plug 'chriskempson/vim-tomorrow-theme'
+"Plug 'airblade/vim-gitgutter'
+Plug 'mhinz/vim-signify'
+Plug 'pangloss/vim-javascript'
+Plug 'hail2u/vim-css3-syntax'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'terryma/vim-multiple-cursors'
+call plug#end()
+
+set t_ut=
+set number
+"autocmd vimenter * NERDTree
+colorscheme Tomorrow-Night-Bright
+set laststatus=2
+
+" Airline 
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+
+
+" tmux-navigator
+let g:tmux_navigator_no_mappings = 1
+"set term=xterm256
+
+nnoremap <silent> <C-Left>  :TmuxNavigateLeft<cr>
+nnoremap <silent> <C-Down> :TmuxNavigateDown<cr>
+nnoremap <silent> <C-Up> :TmuxNavigateUp<cr>
+nnoremap <silent> <C-Right> :TmuxNavigateRight<cr>
+nnoremap <silent> <C-\> :TmuxNavigatePrevious<cr>
+
+"set <C-Up>=^[OA
+"set <C-Down>=^[OB
+"set <C-Left>=^[OD
+"set <C-Right>=^[OC

@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/home/jayk'
+let g:netrw_dirhist_2='/home/jayk/.compiz'
+let g:netrw_dirhist_3='/home/jayk/.compiz/session'
+let g:netrw_dirhist_4='/home/jayk/.compiz'
+let g:netrw_dirhist_5='/home/jayk'
+let g:netrw_dirhist_6='/home'
+let g:netrw_dirhist_7='/'
+let g:netrw_dirhist_8='/Volumes/TheHold/Development/IRIS'
+let g:netrw_dirhist_9='/Volumes/TheHold/Development/IRIS/lib'
