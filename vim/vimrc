@@ -31,11 +31,13 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:tmux_navigator_no_mappings = 1
 "set term=xterm256
 
-nnoremap <silent> <C-Left>  :TmuxNavigateLeft<cr>
-nnoremap <silent> <C-Down> :TmuxNavigateDown<cr>
-nnoremap <silent> <C-Up> :TmuxNavigateUp<cr>
-nnoremap <silent> <C-Right> :TmuxNavigateRight<cr>
-nnoremap <silent> <C-\> :TmuxNavigatePrevious<cr>
+nnoremap <silent> <M-Left>  :TmuxNavigateLeft<cr>
+"nnoremap <silent> <M-h>  :TmuxNavigateLeft<cr>
+nnoremap <silent> <M-Down> :TmuxNavigateDown<cr>
+nnoremap <silent> <M-Up> :TmuxNavigateUp<cr>
+nnoremap <silent> <M-Right> :TmuxNavigateRight<cr>
+"nnoremap <silent> <M-l> :TmuxNavigateRight<cr>
+nnoremap <silent> <M-\> :TmuxNavigatePrevious<cr>
 
 "set <C-Up>=^[OA
 "set <C-Down>=^[OB
