@@ -1,6 +1,8 @@
 source ~/.vim/terminalkeys.vim
+set cursorline
 
 call plug#begin()
+Plug 'flazz/vim-colorschemes'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'chriskempson/vim-tomorrow-theme'
@@ -23,7 +25,9 @@ call plug#end()
 set t_ut=
 set number
 "autocmd vimenter * NERDTree
-colorscheme Tomorrow-Night-Bright
+" others  delphi ekvoli inkpot jiks made_of_code maui neverland pf_earth
+" other night - elda moonshine mushroom pride
+colorscheme jayk-cobalt2
 set laststatus=2
 set hidden
 
@@ -49,11 +53,25 @@ nnoremap <silent> <M-\> :TmuxNavigatePrevious<cr>
 nnoremap <silent> `` :b#<cr>
 nnoremap <silent> `= :bnext<cr>
 nnoremap <silent> `- :bprev<cr>
+nnoremap <S-Home> :call Nextcolor()<cr>
 let c = 1
 while c <= 9
 	  execute "nnoremap `" . c . " :" . c . "b\<CR>"
 	    let c += 1
 endwhile
+
+let g:c_scheme = 0
+let g:colorschemes = [ 'elda', 'moonshine', 'mushroom', 'pride', 'jayk-cobalt2', 'delphi', 'ekvoli', 'inkpot', 'jiks', 'made_of_code', 'maui', 'neverland', 'pf_earth']
+
+function Nextcolor()
+    let g:c_scheme += 1
+    let max = len(g:colorschemes)
+    if g:c_scheme >= max
+        let g:c_scheme = 0
+    endif
+    exec "colorscheme ".g:colorschemes[g:c_scheme]
+    echo g:colorschemes[g:c_scheme]
+endfunction
 
 "set <C-Up>=^[OA
 "set <C-Down>=^[OB
