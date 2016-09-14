@@ -30,6 +30,7 @@ set number
 colorscheme jayk-cobalt2
 set laststatus=2
 set hidden
+set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 
 " Airline 
 let g:airline_powerline_fonts = 1
