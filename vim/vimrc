@@ -20,6 +20,12 @@ Plug 'pangloss/vim-javascript'
 "Plug 'ryym/vim-riot'
 Plug 'othree/html5.vim'
 Plug 'tpope/vim-fugitive'
+Plug 'qpkorr/vim-bufkill'
+Plug 'jiangmiao/auto-pairs'
+Plug 'tomtom/tlib_vim'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'garbas/vim-snipmate'
+Plug 'honza/vim-snippets'
 call plug#end()
 
 set t_ut=
@@ -35,14 +41,17 @@ set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 " Airline 
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
+"let g:airline#extensions#tabline#left_sep = ' '
+"let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline_theme = 'luna'
 
 
 " tmux-navigator
 let g:tmux_navigator_no_mappings = 1
 "set term=xterm256
+"
+"set <M-=>=^[=
+"set <M-->=^[-
 
 nnoremap <silent> <M-Left>  :TmuxNavigateLeft<cr>
 "nnoremap <silent> <M-h>  :TmuxNavigateLeft<cr>
@@ -54,7 +63,12 @@ nnoremap <silent> <M-\> :TmuxNavigatePrevious<cr>
 nnoremap <silent> `` :b#<cr>
 nnoremap <silent> `= :bnext<cr>
 nnoremap <silent> `- :bprev<cr>
+nnoremap <silent> ^[= :bnext<cr>
+nnoremap <silent> ^[- :bprev<cr>
 nnoremap <S-Home> :call Nextcolor()<cr>
+nnoremap <silent> <C-w> :BD<cr>
+imap    <C-r> <Plug>snipMateShow
+imap    <S-Tab> <Plug>snipMateShow
 let c = 1
 while c <= 9
 	  execute "nnoremap `" . c . " :" . c . "b\<CR>"
