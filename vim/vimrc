@@ -69,6 +69,9 @@ nnoremap <S-Home> :call Nextcolor()<cr>
 nnoremap <silent> <C-w> :BD<cr>
 imap    <C-r> <Plug>snipMateShow
 imap    <S-Tab> <Plug>snipMateShow
+imap    <F1> <Esc>
+nmap    <F1> <nop>
+nmap  <plug>NERDTreeTabsToggle<cr>
 let c = 1
 while c <= 9
 	  execute "nnoremap `" . c . " :" . c . "b\<CR>"
@@ -92,4 +95,5 @@ endfunction
 "set <C-Down>=^[OB
 "set <C-Left>=^[OD
 "set <C-Right>=^[OC
-map  <plug>NERDTreeTabsToggle<cr>
+au BufRead,BufNewFile *.tag setfiletype html
+
