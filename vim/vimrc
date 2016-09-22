@@ -2,6 +2,7 @@ source ~/.vim/terminalkeys.vim
 set cursorline
 
 call plug#begin()
+Plug 'xolox/vim-misc'
 Plug 'flazz/vim-colorschemes'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
@@ -12,6 +13,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'jasoncodes/ctrlp-modified.vim'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'jistr/vim-nerdtree-tabs'
@@ -26,6 +28,9 @@ Plug 'tomtom/tlib_vim'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
+Plug 'xolox/vim-session'
+Plug 'mileszs/ack.vim'
+Plug 'tyok/nerdtree-ack'
 call plug#end()
 
 set t_ut=
@@ -44,6 +49,11 @@ let g:airline#extensions#tabline#enabled = 1
 "let g:airline#extensions#tabline#left_sep = ' '
 "let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline_theme = 'luna'
+
+" Session
+let g:session_autoload = 'prompt'
+let g:session_autosave = 'yes'
+let g:session_autosave_periodic = 'yes'
 
 
 " tmux-navigator
@@ -72,6 +82,7 @@ imap    <S-Tab> <Plug>snipMateShow
 imap    <F1> <Esc>
 nmap    <F1> <nop>
 nmap  <plug>NERDTreeTabsToggle<cr>
+map     <Leader>m :CtrlPModified<cr>
 let c = 1
 while c <= 9
 	  execute "nnoremap `" . c . " :" . c . "b\<CR>"
