@@ -55,6 +55,8 @@ let g:session_autoload = 'prompt'
 let g:session_autosave = 'yes'
 let g:session_autosave_periodic = 'yes'
 
+" NERDTree
+let NERDTreeQuitOnOpen=1
 
 " tmux-navigator
 let g:tmux_navigator_no_mappings = 1
