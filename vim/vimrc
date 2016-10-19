@@ -31,6 +31,7 @@ Plug 'honza/vim-snippets'
 Plug 'xolox/vim-session'
 Plug 'mileszs/ack.vim'
 Plug 'tyok/nerdtree-ack'
+Plug 'schickling/vim-bufonly'
 call plug#end()
 
 set t_ut=
@@ -51,7 +52,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme = 'luna'
 
 " Session
-let g:session_autoload = 'prompt'
+let g:session_autoload = 'no'
 let g:session_autosave = 'yes'
 let g:session_autosave_periodic = 'yes'
 
@@ -79,12 +80,14 @@ nnoremap <silent> ^[= :bnext<cr>
 nnoremap <silent> ^[- :bprev<cr>
 nnoremap <S-Home> :call Nextcolor()<cr>
 nnoremap <silent> <C-w> :BD<cr>
+nnoremap <silent> <F8> :BufOnly<cr>
+nnoremap <F9> :CtrlPBuffer<cr>
+nnoremap <F10> :CtrlPModified<cr>
 imap    <C-r> <Plug>snipMateShow
 imap    <S-Tab> <Plug>snipMateShow
 imap    <F1> <Esc>
 nmap    <F1> <nop>
 nmap  <plug>NERDTreeTabsToggle<cr>
-map     <Leader>m :CtrlPModified<cr>
 let c = 1
 while c <= 9
 	  execute "nnoremap `" . c . " :" . c . "b\<CR>"
@@ -110,3 +113,16 @@ endfunction
 "set <C-Right>=^[OC
 au BufRead,BufNewFile *.tag setfiletype html
 
+function InsertIfEmpty()
+    if @% == ""
+        " No filename for current buffer
+        set cmdheight=6
+        OpenSession
+        set cmdheight=1
+    elseif filereadable(@%) == 0
+        " File doesn't exist yet
+        startinsert
+    endif
+endfunction
+
+au VimEnter * call InsertIfEmpty()
