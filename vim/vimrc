@@ -36,6 +36,7 @@ call plug#end()
 
 set t_ut=
 set number
+set pastetoggle=<F2>
 "autocmd vimenter * NERDTree
 " others  delphi ekvoli inkpot jiks made_of_code maui neverland pf_earth
 " other night - elda moonshine mushroom pride
@@ -85,6 +86,7 @@ nnoremap <silent> <C-w> :BD<cr>
 nnoremap <silent> <F8> :BufOnly<cr>
 nnoremap <F9> :CtrlPBuffer<cr>
 nnoremap <F10> :CtrlPModified<cr>
+nnoremap <F3> :set invnumber<cr>
 imap    <C-r> <Plug>snipMateShow
 imap    <S-Tab> <Plug>snipMateShow
 imap    <F1> <Esc>
