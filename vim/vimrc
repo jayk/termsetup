@@ -23,12 +23,12 @@ Plug 'pangloss/vim-javascript'
 Plug 'othree/html5.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'qpkorr/vim-bufkill'
-Plug 'jiangmiao/auto-pairs'
 Plug 'tomtom/tlib_vim'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
 Plug 'xolox/vim-session'
+Plug 'jiangmiao/auto-pairs'
 Plug 'mileszs/ack.vim'
 Plug 'tyok/nerdtree-ack'
 Plug 'schickling/vim-bufonly'
@@ -65,6 +65,8 @@ let g:tmux_navigator_no_mappings = 1
 "
 "set <M-=>=^[=
 "set <M-->=^[-
+"
+let g:AutoPairsMultilineClose = 0
 
 nnoremap <silent> <M-Left>  :TmuxNavigateLeft<cr>
 "nnoremap <silent> <M-h>  :TmuxNavigateLeft<cr>
@@ -112,17 +114,4 @@ endfunction
 "set <C-Left>=^[OD
 "set <C-Right>=^[OC
 au BufRead,BufNewFile *.tag setfiletype html
-
-function InsertIfEmpty()
-    if @% == ""
-        " No filename for current buffer
-        set cmdheight=6
-        OpenSession
-        set cmdheight=1
-    elseif filereadable(@%) == 0
-        " File doesn't exist yet
-        startinsert
-    endif
-endfunction
-
-au VimEnter * call InsertIfEmpty()
+au BufRead,BufNewFile *.twig setfiletype html
