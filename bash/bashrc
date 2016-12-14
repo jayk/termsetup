@@ -1,0 +1,1 @@
+alias tmux='tmux new -s $(basename $(pwd)|sed s/[^a-z0-9A-Z_]//)'
