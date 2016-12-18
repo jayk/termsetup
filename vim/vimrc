@@ -3,6 +3,8 @@ set cursorline
 
 call plug#begin()
 Plug 'xolox/vim-misc'
+Plug 'easymotion/vim-easymotion'
+Plug 'jayk/bufpos'
 Plug 'flazz/vim-colorschemes'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
@@ -28,7 +30,6 @@ Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
 Plug 'xolox/vim-session'
-Plug 'jiangmiao/auto-pairs'
 Plug 'mileszs/ack.vim'
 Plug 'tyok/nerdtree-ack'
 Plug 'schickling/vim-bufonly'
@@ -92,9 +93,12 @@ imap    <S-Tab> <Plug>snipMateShow
 imap    <F1> <Esc>
 nmap    <F1> <nop>
 nmap  <plug>NERDTreeTabsToggle<cr>
+
+nmap / <Plug>(easymotion-bd-tn)
 let c = 1
 while c <= 9
-	  execute "nnoremap `" . c . " :" . c . "b\<CR>"
+	  execute "nnoremap `" . c . " :call BufPos_ActivateBuffer(" . c . ")<CR>"
+"	  execute "nnoremap <M-" . c . "> :call BufPos_ActivateBuffer(" . c . ")<CR>"
 	    let c += 1
 endwhile
 
@@ -102,7 +106,7 @@ let g:ctrlp_regexp = 1
 let g:c_scheme = 0
 let g:colorschemes = [ 'elda', 'moonshine', 'mushroom', 'pride', 'jayk-cobalt2', 'delphi', 'ekvoli', 'inkpot', 'jiks', 'made_of_code', 'maui', 'neverland', 'pf_earth']
 
-function Nextcolor()
+function! Nextcolor()
     let g:c_scheme += 1
     let max = len(g:colorschemes)
     if g:c_scheme >= max
@@ -118,3 +122,14 @@ endfunction
 "set <C-Right>=^[OC
 au BufRead,BufNewFile *.tag setfiletype html
 au BufRead,BufNewFile *.twig setfiletype html
+
+au BufNewFile,BufRead *.pipeline setf IRIS
+
+fun! s:SelectIRIS()
+      if getline(1) =~# '<!--IRIS'
+          set ft=IRIS
+      endif
+endfun
+
+au BufNewFile,BufRead * call s:SelectIRIS()
+
