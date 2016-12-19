@@ -324,9 +324,10 @@ call s:X("Delimiter",g:dirty_blue,"","","Grey","")
 call s:X("String",g:green,"","","Green","")
 hi! link StringDelimiter Delimiter
 
-call s:X("Identifier",g:dark_orange,"","",g:dark_orange,"")
+call s:X("Identifier",g:light_blue,"","",g:dark_orange,"")
 call s:X("Structure",g:dark_blue,"","italic","Grey","")
 call s:X("Function",g:yellow,"","","","")
+call s:X("Macro",g:light_orange,"","","","")
 call s:X("Statement",g:dark_orange,"","","","")
 call s:X("PreProc",g:dark_orange,"","",g:dark_orange,"")
 call s:X("Operator",g:dark_blue,"","italic","Grey","")

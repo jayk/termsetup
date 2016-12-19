@@ -33,6 +33,7 @@ Plug 'xolox/vim-session'
 Plug 'mileszs/ack.vim'
 Plug 'tyok/nerdtree-ack'
 Plug 'schickling/vim-bufonly'
+Plug 'altercation/solarized'
 call plug#end()
 
 set t_ut=
@@ -104,7 +105,8 @@ endwhile
 
 let g:ctrlp_regexp = 1
 let g:c_scheme = 0
-let g:colorschemes = [ 'elda', 'moonshine', 'mushroom', 'pride', 'jayk-cobalt2', 'delphi', 'ekvoli', 'inkpot', 'jiks', 'made_of_code', 'maui', 'neverland', 'pf_earth']
+"let g:colorschemes = [ 'elda', 'moonshine', 'mushroom', 'pride', 'jayk-cobalt2', 'delphi', 'ekvoli', 'inkpot', 'jiks', 'made_of_code', 'maui', 'neverland', 'pf_earth']
+let g:colorschemes = [ 'automation', 'badwolf', 'behelit', 'black_angus', 'blazer', 'bluez', 'bocau', 'busierbee', 'colorful256', 'duotone-darkcave', 'jiks', 'gotham256', 'graywh', 'ingretu', 'default', 'maui', 'meta5', 'moss', 'railscasts', 'skittles_berry', 'softbluev2', 'vividchalk', 'xterm16', 'zephyr' ]
 
 function! Nextcolor()
     let g:c_scheme += 1
