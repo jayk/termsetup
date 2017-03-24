@@ -62,6 +62,7 @@ let g:session_autosave_periodic = 'yes'
 
 " NERDTree
 let NERDTreeQuitOnOpen=1
+let g:NERDTreeWinSize = 50
 
 " tmux-navigator
 let g:tmux_navigator_no_mappings = 1
