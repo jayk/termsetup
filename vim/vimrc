@@ -4,6 +4,7 @@ set cursorline
 call plug#begin()
 Plug 'xolox/vim-misc'
 Plug 'easymotion/vim-easymotion'
+Plug 'tpope/vim-surround'
 Plug 'jayk/bufpos'
 Plug 'scrooloose/syntastic'
 Plug 'flazz/vim-colorschemes'
