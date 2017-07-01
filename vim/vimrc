@@ -5,6 +5,7 @@ call plug#begin()
 Plug 'xolox/vim-misc'
 Plug 'easymotion/vim-easymotion'
 Plug 'jayk/bufpos'
+Plug 'scrooloose/syntastic'
 Plug 'flazz/vim-colorschemes'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
@@ -61,6 +62,7 @@ let g:session_autosave_periodic = 'yes'
 
 " NERDTree
 let NERDTreeQuitOnOpen=1
+let g:NERDTreeWinSize = 50
 
 " tmux-navigator
 let g:tmux_navigator_no_mappings = 1
