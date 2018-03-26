@@ -1,0 +1,27 @@
+#!/bin/bash
+#prefilename=""
+#if [ $# -eq 1 ]; then 
+#    if [ -d $1 ]; then
+#        cd $1;
+#        shift 1
+#    elif [ -e `dirname $1` ]; then
+#        cd `dirname $1`;
+#        prefilename=$(basename $1);  
+#        shift 1;
+#    fi
+#fi
+
+
+if [ -n "$TMUX" ]; then
+    tmux new-window "vim $prefilename $@"
+else 
+    terminate_after_close="yes"
+    tmux new-session -d "vim $prefilename $@"
+fi
+usleep 200000
+tmux split-window -v -p 10 '/usr/bin/bash'
+tmux select-pane -t 0
+
+if [ "$terminate_after_close" == "yes" ]; then
+    tmux -2 attach-session -d
+fi
