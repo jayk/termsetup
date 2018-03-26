@@ -2,6 +2,7 @@ source ~/.vim/terminalkeys.vim
 set cursorline
 
 call plug#begin()
+Plug 'scrooloose/syntastic'
 Plug 'xolox/vim-misc'
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-surround'
@@ -12,7 +13,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'chriskempson/vim-tomorrow-theme'
 "Plug 'airblade/vim-gitgutter'
 Plug 'mhinz/vim-signify'
-Plug 'pangloss/vim-javascript'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'ctrlpvim/ctrlp.vim'
