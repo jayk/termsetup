@@ -18,8 +18,8 @@ else
     terminate_after_close="yes"
     tmux new-session -d "vim $prefilename $@"
 fi
-usleep 200000
-tmux split-window -v -p 10 '/usr/bin/bash'
+sleep 0.3
+tmux split-window -v -p 8 '/usr/bin/bash'
 tmux select-pane -t 0
 
 if [ "$terminate_after_close" == "yes" ]; then
