@@ -1,18 +1,26 @@
 #!/bin/bash
-ROWS=$(tput lines)
-COLS=$(tput cols)
+
+
+HEIGHT=${LINES}
+WIDTH=${COLUMNS}
+
+# if our size is not set in the environment, we have to get it from tput
+if [ -n "$HEIGHT"]; then
+    HEIGHT=$(tput lines)
+    WIDTH=$(tput cols)
+fi
 
 if [ -n "$VID_CONSOLE_LINES" ]; then 
-    VIMSIZE=$(expr $ROWS - ${VID_CONSOLE_LINES:-8})
+    VIMSIZE=$(expr $HEIGHT - ${VID_CONSOLE_LINES:-8})
 else 
-    VIMSIZE=$(echo $ROWS | awk '{ printf("%d", $1 * 0.8) }' )
+    VIMSIZE=$(echo $HEIGHT | awk '{ printf("%d", $1 * 0.8) }' )
 fi
 
 if [ -n "$TMUX" ]; then
     tmux split-window -v -b -l $VIMSIZE "vim $prefilename $@"
 else 
     terminate_after_close="yes"
-    tmux new-session -d -x $COLS -y $ROWS $SHELL
+    tmux new-session -d -x $WIDTH -y $HEIGHT $SHELL
     sleep 0.4
     tmux split-window -v -b -l $VIMSIZE "vim $prefilename $@"
 fi
