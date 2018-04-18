@@ -1,25 +1,21 @@
 #!/bin/bash
-#prefilename=""
-#if [ $# -eq 1 ]; then 
-#    if [ -d $1 ]; then
-#        cd $1;
-#        shift 1
-#    elif [ -e `dirname $1` ]; then
-#        cd `dirname $1`;
-#        prefilename=$(basename $1);  
-#        shift 1;
-#    fi
-#fi
+ROWS=$(tput lines)
+COLS=$(tput cols)
 
+if [ -n "$VID_CONSOLE_LINES" ]; then 
+    VIMSIZE=$(expr $ROWS - ${VID_CONSOLE_LINES:-8})
+else 
+    VIMSIZE=$(echo $ROWS | awk '{ printf("%d", $1 * 0.8) }' )
+fi
 
 if [ -n "$TMUX" ]; then
-    tmux new-window "vim $prefilename $@"
+    tmux split-window -v -b -l $VIMSIZE "vim $prefilename $@"
 else 
     terminate_after_close="yes"
-    tmux new-session -d "vim $prefilename $@"
+    tmux new-session -d -x $COLS -y $ROWS $SHELL
+    sleep 0.4
+    tmux split-window -v -b -l $VIMSIZE "vim $prefilename $@"
 fi
-sleep 0.3
-tmux split-window -v -p 8 '/usr/bin/bash'
 tmux select-pane -t 0
 
 if [ "$terminate_after_close" == "yes" ]; then
