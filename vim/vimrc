@@ -5,6 +5,7 @@ call plug#begin()
 Plug 'scrooloose/syntastic'
 Plug 'xolox/vim-misc'
 Plug 'easymotion/vim-easymotion'
+"Plug 'haya14busa/incsearch.vim'
 Plug 'tpope/vim-surround'
 Plug 'jayk/bufpos'
 Plug 'scrooloose/syntastic'
@@ -36,6 +37,8 @@ Plug 'mileszs/ack.vim'
 Plug 'tyok/nerdtree-ack'
 Plug 'schickling/vim-bufonly'
 Plug 'altercation/solarized'
+Plug 'junegunn/limelight.vim'
+Plug 'junegunn/goyo.vim'
 call plug#end()
 
 set t_ut=
@@ -74,6 +77,10 @@ let g:tmux_navigator_no_mappings = 1
 "
 let g:AutoPairsMultilineClose = 0
 
+" Limelight darken color
+let g:limelight_conceal_ctermfg = 240
+let g:goyo_width = "80%"
+
 nnoremap <silent> <M-Left>  :TmuxNavigateLeft<cr>
 nnoremap <silent> <M-Down> :TmuxNavigateDown<cr>
 nnoremap <silent> <M-Up> :TmuxNavigateUp<cr>
@@ -87,8 +94,8 @@ nnoremap <silent> ^[- :bprev<cr>
 nnoremap <S-Home> :call Nextcolor()<cr>
 nnoremap <silent> <C-w> :BD<cr>
 nnoremap <silent> <F8> :BufOnly<cr>
-nnoremap <C-P> :CtrlPBuffer<cr>
-nnoremap <F10> :CtrlPModified<cr>
+nnoremap <C-p> :CtrlP<cr>
+nnoremap <C-l> :CtrlPBuffer<cr>
 "nnoremap <F3> :set invnumber<cr>
 nnoremap <F3> :let [&nu, &rnu] = [!&rnu, &nu+&rnu==1]<cr>
 imap    <C-r> <Plug>snipMateShow
@@ -96,8 +103,11 @@ imap    <S-Tab> <Plug>snipMateShow
 imap    <F1> <Esc>
 nmap    <F1> <nop>
 nmap  <plug>NERDTreeTabsToggle<cr>
+nmap <F12> :Goyo<cr>
+nmap <F10> :Limelight!!<cr>
 
-nmap / <Plug>(easymotion-bd-tn)
+nmap / <Plug>(easymotion-sn)
+"nmap ?  <Plug>(incsearch-backward)
 let c = 1
 while c <= 9
 	  execute "nnoremap `" . c . " :call BufPos_ActivateBuffer(" . c . ")<CR>"
@@ -136,4 +146,3 @@ fun! s:SelectIRIS()
 endfun
 
 au BufNewFile,BufRead * call s:SelectIRIS()
-
