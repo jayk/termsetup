@@ -1,2 +1,18 @@
 alias tmux='tmux new -s $(basename $(pwd)|sed s/[^a-z0-9A-Z_]//)'
 alias vi='vim'
+
+kolor() {
+    konsoleprofile ColorScheme=jayk-${1}
+}
+
+sshagent() {
+    if [ -e $HOME/.ssh-agent ]; then 
+        . $HOME/.ssh-agent;
+    fi
+    ps -p $SSH_AGENT_PID >/dev/null 2>&1
+    if [ ! -S $SSH_AUTH_SOCK -o $? -eq 1 ]; then 
+       ssh-agent -k >/dev/null 2>&1
+       ssh-agent |grep -v echo > $HOME/.ssh-agent
+        . $HOME/.ssh-agent;
+    fi
+}
