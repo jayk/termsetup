@@ -9,8 +9,8 @@ sshagent() {
     if [ -e $HOME/.ssh-agent ]; then 
         . $HOME/.ssh-agent;
     fi
-    ps -p $SSH_AGENT_PID >/dev/null 2>&1
-    if [ ! -S $SSH_AUTH_SOCK -o $? -eq 1 ]; then 
+    ps -p "${SSH_AGENT_PID}" >/dev/null 2>&1
+    if [ ! -S "${SSH_AUTH_SOCK}" -o $? -eq 1 ]; then 
        ssh-agent -k >/dev/null 2>&1
        ssh-agent |grep -v echo > $HOME/.ssh-agent
         . $HOME/.ssh-agent;

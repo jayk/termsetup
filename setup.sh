@@ -12,7 +12,7 @@ read
 cd $HOME
 #ln -s ${base_dir}/vim .vim
 #ln -s ${base_dir}/vim/vimrc .vimrc
-#ln -s ${base_dir}/tmux/tmux.conf .tmux.conf
+ln -s ${base_dir}/tmux/tmux.conf .tmux.conf
 echo "if [ -e ${base_dir}/bash/bashrc ]; then" >> ~/.bashrc
 echo "    . ${base_dir}/bash/bashrc" >> ~/.bashrc
 echo "fi" >> ~/.bashrc

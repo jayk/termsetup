@@ -24,6 +24,7 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'pangloss/vim-javascript'
+"Plug 'suan/vim-instant-markdown'
 "Plug 'ryym/vim-riot'
 Plug 'othree/html5.vim'
 Plug 'tpope/vim-fugitive'
@@ -116,6 +117,7 @@ while c <= 9
 endwhile
 
 let g:ctrlp_regexp = 1
+let g:ctrlp_custom_ignore = { 'dir': '\v[\/](dist|.git)$' }
 let g:c_scheme = 0
 "let g:colorschemes = [ 'elda', 'moonshine', 'mushroom', 'pride', 'jayk-cobalt2', 'delphi', 'ekvoli', 'inkpot', 'jiks', 'made_of_code', 'maui', 'neverland', 'pf_earth']
 let g:colorschemes = [ 'automation', 'badwolf', 'behelit', 'black_angus', 'blazer', 'bluez', 'bocau', 'busierbee', 'colorful256', 'duotone-darkcave', 'jiks', 'gotham256', 'graywh', 'ingretu', 'default', 'maui', 'meta5', 'moss', 'railscasts', 'skittles_berry', 'softbluev2', 'vividchalk', 'xterm16', 'zephyr' ]
