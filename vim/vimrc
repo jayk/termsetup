@@ -25,7 +25,7 @@ Plug 'jistr/vim-nerdtree-tabs'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'pangloss/vim-javascript'
 "Plug 'suan/vim-instant-markdown'
-"Plug 'ryym/vim-riot'
+Plug 'ryym/vim-riot'
 Plug 'othree/html5.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'qpkorr/vim-bufkill'
@@ -40,6 +40,7 @@ Plug 'schickling/vim-bufonly'
 Plug 'altercation/solarized'
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/goyo.vim'
+Plug 'maksimr/vim-jsbeautify'
 call plug#end()
 
 set t_ut=
@@ -132,6 +133,7 @@ function! Nextcolor()
     echo g:colorschemes[g:c_scheme]
 endfunction
 
+
 "set <C-Up>=^[OA
 "set <C-Down>=^[OB
 "set <C-Left>=^[OD
@@ -148,3 +150,18 @@ fun! s:SelectIRIS()
 endfun
 
 au BufNewFile,BufRead * call s:SelectIRIS()
+
+
+map <c-j> :call JsBeautify()<cr>
+" or
+autocmd FileType javascript noremap <buffer>  <c-j> :call JsBeautify()<cr>
+" for json
+autocmd FileType json noremap <buffer> <c-j> :call JsonBeautify()<cr>
+" for jsx
+autocmd FileType jsx noremap <buffer> <c-j> :call JsxBeautify()<cr>
+autocmd FileType tag noremap <buffer> <c-j> :call JsxBeautify()<cr>
+" for html
+autocmd FileType html noremap <buffer> <c-j> :call HtmlBeautify()<cr>
+autocmd FileType riot noremap <buffer> <c-j> :call HtmlBeautify()<cr>
+" for css or scss
+autocmd FileType css noremap <buffer> <c-j> :call CSSBeautify()<cr>
