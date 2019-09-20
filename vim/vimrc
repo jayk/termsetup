@@ -26,6 +26,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'pangloss/vim-javascript'
 "Plug 'suan/vim-instant-markdown'
 Plug 'ryym/vim-riot'
+Plug 'jamshedvesuna/vim-markdown-preview'
 Plug 'othree/html5.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'qpkorr/vim-bufkill'
@@ -41,6 +42,7 @@ Plug 'altercation/solarized'
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'maksimr/vim-jsbeautify'
+Plug 'chrisbra/unicode.vim'
 call plug#end()
 
 set t_ut=
@@ -116,6 +118,10 @@ while c <= 9
 "	  execute "nnoremap <M-" . c . "> :call BufPos_ActivateBuffer(" . c . ")<CR>"
 	    let c += 1
 endwhile
+
+let vim_markdown_preview_hotkey='<C-F5>'
+let vim_makrdown_preview_github=0
+let vim_markdown_preview_use_xdg_open=1 
 
 let g:ctrlp_regexp = 1
 let g:ctrlp_custom_ignore = { 'dir': '\v[\/](dist|.git)$' }
