@@ -21,3 +21,4 @@ if [ -r '/usr/share/nvm/init-nvm.sh' ]; then
     source /usr/share/nvm/init-nvm.sh
 fi
 
+export EDITOR=$(which vim)
