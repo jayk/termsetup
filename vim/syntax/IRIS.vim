@@ -16,6 +16,7 @@ syn keyword IRIS_IRIS IRIS
 syn match IRIS_openingTag /<!--.*$/ contains=IRIS_IRIS
 syn match IRIS_closingTag /-->/ containedin=NONE
 
+syn keyword IRIS_set set 
 syn match IRIS_variable /\$[a-zA-Z0-9_\.\[\]]\+/ containedin=IRIS_interpreted_strings
 syn match IRIS_operators /[=><!\+\-\/\*|&]\+/ containedin=IRIS_interpreted_strings
 syn match IRIS_numbers /[\+\-]\?[0-9][0-9\.]\+/ containedin=IRIS_interpreted_strings
@@ -58,6 +59,7 @@ highlight link IRIS_dieComponent Exception
 highlight link IRIS_argName Tag
 highlight link IRIS_nameKeyword Constant
 highlight link IRIS_parens Delimiter
+highlight link IRIS_set Label
 
 highlight link IRIS_openingTag Comment
 highlight link IRIS_closingTag Comment
