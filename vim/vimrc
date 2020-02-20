@@ -43,6 +43,7 @@ Plug 'junegunn/limelight.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'maksimr/vim-jsbeautify'
 Plug 'chrisbra/unicode.vim'
+Plug 'posva/vim-vue'
 call plug#end()
 
 set t_ut=
